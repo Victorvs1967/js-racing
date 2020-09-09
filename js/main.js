@@ -20,6 +20,9 @@ const setting = {
 const playGame = () => {
     console.log('play game');
     if (setting.start) {
+        if (keys.ArrowLeft) {
+            setting.x -= 1;
+        }
         requestAnimationFrame(playGame);
     }
 };
@@ -28,7 +31,8 @@ start.addEventListener('click', () => {
     start.classList.toggle('hide');
     setting.start = true;
     gameArea.appendChild(car);
-    requestAnimationFrame(playGame);
+    setting.x = car.offsetLeft;
+     requestAnimationFrame(playGame);
 });
 document.addEventListener('keyup', (event) => {
     event.preventDefault();
