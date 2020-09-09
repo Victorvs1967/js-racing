@@ -21,7 +21,7 @@ const playGame = () => {
     console.log('play game');
     if (setting.start) {
         requestAnimationFrame(playGame);
-    };
+    }
 };
 
 start.addEventListener('click', () => {
