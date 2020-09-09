@@ -17,28 +17,25 @@ const setting = {
     speed: 3
 };
 
-const startGame = () => {
-    start.classList.toggle('hide');
-    setting.start = true;
-    gameArea.appendChild(car);
-    requestAnimationFrame(playGame);
-};
 const playGame = () => {
     console.log('play game');
     if (setting.start) {
         requestAnimationFrame(playGame);
     };
 };
-const startRun = (event) => {
+
+start.addEventListener('click', () => {
+    start.classList.toggle('hide');
+    setting.start = true;
+    gameArea.appendChild(car);
+    requestAnimationFrame(playGame);
+});
+document.addEventListener('keyup', (event) => {
     event.preventDefault();
     keys[event.key] = true;
- };
-const stopRun = (event) => {
+ });
+document.addEventListener('keydown', (event) => {
     event.preventDefault();
     keys[event.key] = false;
     setting.start = false;
-};
-
-start.addEventListener('click', startGame);
-document.addEventListener('keydown', startRun);
-document.addEventListener('keyup', stopRun);
+});

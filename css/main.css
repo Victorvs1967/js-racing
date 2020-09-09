@@ -6,3 +6,6 @@
     height: 100px;
     background: transparent url('../image/player.png') center / cover no-repeat;
 }
+.start {
+    padding: 8px;
+}
