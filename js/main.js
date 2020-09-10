@@ -41,7 +41,6 @@ const moveEnemy = () => {
                 setting.start = false;
                 start.classList.toggle('hide');
                 start.style.top = score.offsetHeight;
-                alert('Bang!!!');
             }
         enemy.y += setting.speed / 2;
         enemy.style.top = enemy.y + 'px';
@@ -91,11 +90,12 @@ start.addEventListener('click', () => {
     }
     for (let i = 0; i < getQuantityElements(100 * setting.traffic); i++) {
         const enemy = document.createElement('div');
+        const randEnemy = Math.floor(Math.random() * 2) + 1;
         enemy.classList.add('enemy');
         enemy.y = -100 * setting.traffic * (i + 1);
         enemy.style.left = Math.floor(Math.random() * (gameArea.offsetWidth - 50)) + 'px';
         enemy.style.top = enemy.y + 'px';
-        enemy.style.background = 'transparent url(./image/enemy2.png) center / cover no-repeat';
+        enemy.style.background = 'transparent url(./image/enemy' + randEnemy + '.png) center / cover no-repeat';
         gameArea.appendChild(enemy);
     }
     setting.score = 0;
@@ -109,10 +109,14 @@ start.addEventListener('click', () => {
     requestAnimationFrame(playGame);
 });
 document.addEventListener('keydown', (event) => {
-    event.preventDefault();
-    keys[event.key] = true;
+    if (keys.hasOwnProperty(event.key)) {
+        event.preventDefault();
+        keys[event.key] = true;
+    }
 });
 document.addEventListener('keyup', (event) => {
-    event.preventDefault();
-    keys[event.key] = false;
+    if (keys.hasOwnProperty(event.key)) {
+        event.preventDefault();
+        keys[event.key] = false;    
+    }
  });
