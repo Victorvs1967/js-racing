@@ -41,7 +41,7 @@ const moveEnemy = () => {
                 setting.start = false;
                 start.classList.toggle('hide');
                 start.style.top = score.offsetHeight;
-                // alert('Bang!!!');
+                alert('Bang!!!');
             }
         enemy.y += setting.speed / 2;
         enemy.style.top = enemy.y + 'px';
