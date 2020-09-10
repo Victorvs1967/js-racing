@@ -36,6 +36,7 @@ const moveEnemy = () => {
         enemy.style.top = enemy.y + 'px';
         if (enemy.y >= document.documentElement.clientHeight) {
             enemy.y = -100 * setting.traffic;
+            enemy.style.left = Math.floor(Math.random() * (gameArea.offsetWidth - 50)) + 'px';
         }
     });
 };
