@@ -4,9 +4,6 @@ const score = document.querySelector('.score'),
     car = document.createElement('div'),
     line = document.createElement('div');
 
-car.classList.add('car');
-line.classList.add('line');
-
 const keys = {
     ArrowUp: false,
     ArrowDown: false,
@@ -19,6 +16,9 @@ const setting = {
     speed: 3,
     traffic: 3
 };
+car.classList.add('car');
+line.classList.add('line');
+
 const moveRoad = () => {
     let lines = document.querySelectorAll('.line');
     lines.forEach( (line) => {
