@@ -83,7 +83,6 @@ start.addEventListener('click', () => {
         enemy.style.background = "transparent url('./image/enemy2.png') center / cover no-repeat";
         gameArea.appendChild(enemy);
     }
-
     setting.start = true;
     gameArea.appendChild(car);
     setting.x = car.offsetLeft;
