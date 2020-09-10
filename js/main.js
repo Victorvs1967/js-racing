@@ -30,8 +30,8 @@ const moveRoad = () => {
     });
 };
 const moveEnemy = () => {
-    let enemys = document.querySelectorAll('.enemy');
-    enemys.forEach( (enemy) => {
+    let enemies = document.querySelectorAll('.enemy');
+    enemies.forEach( (enemy) => {
         enemy.y += setting.speed / 2;
         enemy.style.top = enemy.y + 'px';
         if (enemy.y >= document.documentElement.clientHeight) {
