@@ -11,7 +11,8 @@
 }
 .start {
     padding: 8px;
-    margin: auto;
+    width: 285px;
+    margin-left: 39%;
 }
 .gameArea {
     width: 300px;
