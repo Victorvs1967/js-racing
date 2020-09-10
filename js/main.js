@@ -4,6 +4,8 @@ const score = document.querySelector('.score'),
     car = document.createElement('div'),
     line = document.createElement('div');
 
+const MAX_ENEMY = 7;
+
 const keys = {
     ArrowUp: false,
     ArrowDown: false,
@@ -90,7 +92,7 @@ start.addEventListener('click', () => {
     }
     for (let i = 0; i < getQuantityElements(100 * setting.traffic); i++) {
         const enemy = document.createElement('div');
-        const randEnemy = Math.floor(Math.random() * 2) + 1;
+        const randEnemy = Math.floor(Math.random() * MAX_ENEMY) + 1;
         enemy.classList.add('enemy');
         enemy.y = -100 * setting.traffic * (i + 1);
         enemy.style.left = Math.floor(Math.random() * (gameArea.offsetWidth - 50)) + 'px';
