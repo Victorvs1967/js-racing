@@ -20,7 +20,7 @@ car.classList.add('car');
 line.classList.add('line');
 
 const moveRoad = () => {
-    let lines = document.querySelectorAll('.line');
+    const lines = document.querySelectorAll('.line');
     lines.forEach( (line) => {
         line.y += setting.speed;
         line.style.top = line.y + 'px';
@@ -30,7 +30,7 @@ const moveRoad = () => {
     });
 };
 const moveEnemy = () => {
-    let enemies = document.querySelectorAll('.enemy');
+    const enemies = document.querySelectorAll('.enemy');
     enemies.forEach( (enemy) => {
         let carRect = car.getBoundingClientRect();
         let enemyRect = enemy.getBoundingClientRect();
@@ -108,6 +108,7 @@ start.addEventListener('click', () => {
     setting.y = car.offsetTop;
     requestAnimationFrame(playGame);
 });
+
 document.addEventListener('keydown', (event) => {
     if (keys.hasOwnProperty(event.key)) {
         event.preventDefault();
@@ -119,4 +120,4 @@ document.addEventListener('keyup', (event) => {
         event.preventDefault();
         keys[event.key] = false;    
     }
- });
+});
