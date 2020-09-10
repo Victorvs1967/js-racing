@@ -52,7 +52,7 @@ const moveEnemy = () => {
 };
 const getQuantityElements = (heightElement) => {
     return document.documentElement.clientHeight / heightElement + 1;
-}
+};
 
 const playGame = () => {
     if (setting.start) {
