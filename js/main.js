@@ -6,6 +6,8 @@ const score = document.querySelector('.score'),
 
 const MAX_ENEMY = 7;
 
+const soundEffect = new Audio('../media/audio.mp3');
+
 const keys = {
     ArrowUp: false,
     ArrowDown: false,
@@ -18,8 +20,6 @@ const setting = {
     speed: 3,
     traffic: 3
 };
-
-const soundEffect = new Audio('../media/audio.mp3');
 
 car.classList.add('car');
 line.classList.add('line');
@@ -46,6 +46,7 @@ const moveEnemy = () => {
                 setting.start = false;
                 start.classList.toggle('hide');
                 start.style.top = score.offsetHeight;
+                gameArea.append(soundEffect.pause());
             }
         enemy.y += setting.speed / 2;
         enemy.style.top = enemy.y + 'px';
