@@ -11,8 +11,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    width: 300px;
-    margin-left: 38.2%;
+    width: 100%;
     margin-top: 0;
     z-index: 200;
     padding: 1rem;
@@ -23,8 +22,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    width: 300px;
-    margin-left: 38.2%;
+    width: 100%;
     margin-top: 0;
     z-index: 200;
     padding: 1rem 0;
