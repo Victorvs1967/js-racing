@@ -19,10 +19,7 @@ const setting = {
     traffic: 3
 };
 
-const audio = document.createElement('embed');
-audio.src = '../media/audio.mp3';
-audio.type = 'audio/mp3';
-audio.style.cssText = ``;
+const soundEffect = new Audio('../media/audio.mp3');
 
 car.classList.add('car');
 line.classList.add('line');
@@ -86,47 +83,51 @@ const playGame = () => {
     }
 };
 
-start.addEventListener('click', () => {
-    start.classList.toggle('hide');
-    gameArea.innerHTML = '';
-    for (let i = 0; i < getQuantityElements(100); i++) {
-        const line = document.createElement('div');
-        line.classList.add('line');
-        line.style.top = (100 * i) + 'px';
-        line.y = 100 * i;
-        gameArea.append(line);    
-    }
-    for (let i = 0; i < getQuantityElements(100 * setting.traffic); i++) {
-        const enemy = document.createElement('div');
-        const randEnemy = Math.floor(Math.random() * MAX_ENEMY) + 1;
-        enemy.classList.add('enemy');
-        enemy.y = -100 * setting.traffic * (i + 1);
-        enemy.style.left = Math.floor(Math.random() * (gameArea.offsetWidth - 50)) + 'px';
-        enemy.style.top = enemy.y + 'px';
-        enemy.style.background = `transparent url(./image/enemy${randEnemy}.png) center / cover no-repeat`;
-        gameArea.append(enemy);
-    }
-    setting.score = 0;
-    setting.start = true;
-    gameArea.append(car);
-    gameArea.append(audio);
-    car.style.left = '125px';
-    car.style.top = 'auto';
-    car.style.bottom = '10px';
-    setting.x = car.offsetLeft;
-    setting.y = car.offsetTop;
-    requestAnimationFrame(playGame);
-});
+const game = () => {
+    start.addEventListener('click', () => {
+        start.classList.toggle('hide');
+        gameArea.innerHTML = '';
+        for (let i = 0; i < getQuantityElements(100); i++) {
+            const line = document.createElement('div');
+            line.classList.add('line');
+            line.style.top = (100 * i) + 'px';
+            line.y = 100 * i;
+            gameArea.append(line);    
+        }
+        for (let i = 0; i < getQuantityElements(100 * setting.traffic); i++) {
+            const enemy = document.createElement('div');
+            const randEnemy = Math.floor(Math.random() * MAX_ENEMY) + 1;
+            enemy.classList.add('enemy');
+            enemy.y = -100 * setting.traffic * (i + 1);
+            enemy.style.left = Math.floor(Math.random() * (gameArea.offsetWidth - 50)) + 'px';
+            enemy.style.top = enemy.y + 'px';
+            enemy.style.background = `transparent url(./image/enemy${randEnemy}.png) center / cover no-repeat`;
+            gameArea.append(enemy);
+        }
+        setting.score = 0;
+        setting.start = true;
+        gameArea.append(car);
+        gameArea.append(soundEffect.play());
+        car.style.left = '125px';
+        car.style.top = 'auto';
+        car.style.bottom = '10px';
+        setting.x = car.offsetLeft;
+        setting.y = car.offsetTop;
+        requestAnimationFrame(playGame);
+    });
 
-document.addEventListener('keydown', (event) => {
-    if (keys.hasOwnProperty(event.key)) {
-        event.preventDefault();
-        keys[event.key] = true;
-    }
-});
-document.addEventListener('keyup', (event) => {
-    if (keys.hasOwnProperty(event.key)) {
-        event.preventDefault();
-        keys[event.key] = false;    
-    }
-});
+    document.addEventListener('keydown', (event) => {
+        if (keys.hasOwnProperty(event.key)) {
+            event.preventDefault();
+            keys[event.key] = true;
+        }
+    });
+    document.addEventListener('keyup', (event) => {
+        if (keys.hasOwnProperty(event.key)) {
+            event.preventDefault();
+            keys[event.key] = false;    
+        }
+    });
+};
+
+game();
