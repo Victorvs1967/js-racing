@@ -7,7 +7,7 @@ const score = document.querySelector('.score'),
 const MAX_ENEMY = 7;
 
 const audio = document.createElement('audio');
-audio.src = '../media/audio.mp3';
+audio.src = 'media/audio.mp3';
 
 const keys = {
     ArrowUp: false,
